@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_base_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray">
+
+        <FrameLayout
+            android:id="@+id/fl_base_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <!--加载失败-->
+            <LinearLayout
+                android:id="@+id/tv_base_error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="@dimen/margin100"
+                    android:layout_height="@dimen/margin100"
+                    android:background="@drawable/shape_error_bg"
+                    android:padding="@dimen/margin20"
+                    android:src="@mipmap/error"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/margin15"
+                    android:text="亲，您的手机网络不太顺畅喔~"
+                    android:textColor="@color/text_error"
+                    android:textSize="@dimen/textsize18"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/tv_base_again"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5"
+                    android:background="@drawable/shape_again_bg"
+                    android:paddingBottom="@dimen/margin5"
+                    android:paddingLeft="@dimen/margin20"
+                    android:paddingRight="@dimen/margin20"
+                    android:paddingTop="@dimen/margin5"
+                    android:text="重新加载"
+                    android:textColor="@color/text_error"
+                    android:textSize="@dimen/textsize14"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+        </FrameLayout>
+        <!--加载中..-->
+        <include layout="@layout/layout_progress" />
+    </FrameLayout>
+</LinearLayout>

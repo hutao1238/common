@@ -1,0 +1,84 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+android {
+    compileSdkVersion 26
+    defaultConfig {
+//        applicationId "com.lbb.common"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+}
+
+configurations {
+    allDebug
+    allRelease
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    //base
+    compile rootProject.ext.dependencies["appcompat-v7"]
+    compile rootProject.ext.dependencies["design"]
+    compile rootProject.ext.dependencies["recyclerview-v7"]
+
+    //anko
+    compile rootProject.ext.dependencies["anko"]
+
+    //rx
+    compile rootProject.ext.dependencies["rxjava"]
+    compile rootProject.ext.dependencies["rxandroid"]
+    compile rootProject.ext.dependencies["rxpermissions"]
+    compile rootProject.ext.dependencies["rxlifecycle"]
+    compile rootProject.ext.dependencies["rxlifecycle-components"]
+    compile rootProject.ext.dependencies["rxlifecycle-android"]
+
+    //network
+    compile rootProject.ext.dependencies["gson"]
+    compile rootProject.ext.dependencies["retrofit"]
+    compile rootProject.ext.dependencies["retrofit-converter-gson"]
+    compile rootProject.ext.dependencies["retrofit-adapter-rxjava2"]
+    compile rootProject.ext.dependencies["okhttp"]
+
+    //glide
+    compile rootProject.ext.dependencies["glide"]
+    kapt rootProject.ext.dependencies["glide:compiler"]
+    compile rootProject.ext.dependencies["glide-transformations"]
+
+    //di
+    compile rootProject.ext.dependencies["dagger"]
+    kapt rootProject.ext.dependencies["dagger-compiler"]
+    provided rootProject.ext.dependencies["annotation"]
+
+    //other
+    compile rootProject.ext.dependencies["multidex"]
+    compile rootProject.ext.dependencies["fragmentation"]
+    compile rootProject.ext.dependencies["crashreport"]
+
+    //canary
+    debugCompile rootProject.ext.dependencies["blockcanary-android"]
+    releaseCompile rootProject.ext.dependencies["blockcanary-no-op"]
+    debugCompile rootProject.ext.dependencies["leakcanary-android"]
+    releaseCompile rootProject.ext.dependencies["leakcanary-android-no-op"]
+
+    //沉浸式状态栏
+    compile rootProject.ext.dependencies["barlibrary"]
+
+    //cbDialog
+    compile rootProject.ext.dependencies["CBDialog"]
+
+    //banner
+    compile rootProject.ext.dependencies["banner"]
+}

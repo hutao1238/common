@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">common</string>
+    <string name="try_again">加载失败,点击重试</string>
+    <string name="loading">努力加载中...</string>
+</resources>
